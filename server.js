@@ -26,7 +26,7 @@ app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 
 // ✅ mongoose + loadModels dono saath
-mongoose.connect("mongodb://127.0.0.1:27017/mvcproject")
+mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/mvcproject")
   .then(async () => {
     console.log("✅ DB connected successfully")
     await loadModels()               // ← yahi fix hai
@@ -47,7 +47,7 @@ app.get("/person/:id", async (req, res) => {
 })
 
 // Routes
-app.get("/", (req, res) => res.render("home"))
+app.get("/", (req, res) => res.render("Home"))
 
 app.use("/", signupRoute)
 app.use("/", loginRoute)
