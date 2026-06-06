@@ -16,7 +16,6 @@
     "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "canvas": "^3.2.3",
-    
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "face-api.js": "^0.22.2",
