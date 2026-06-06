@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="css/pages/report.css"> 
+<link rel="stylesheet" href="css/common/header.css">
+ <div class="navbar">
+<h2>Missing Person AI</h2>
+
+<div>
+<a href="/">Home</a>
+<a href="/report">Report</a>
+<a href="/search">Search</a>
+<a href="/help">Help</a>
+</div>
+</div>
+
+<!-- Form -->
+
+<div class="container">
+
+<h2>Report Missing Person</h2>
+
+<form action="/report" method="POST" enctype="multipart/form-data">
+
+<!-- Personal Details -->
+
+<div class="section-title">Personal Details</div>
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="number" name="age" placeholder="Age">
+
+<select name="gender">
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<input type="date" name="dob">
+
+<!-- Physical Details -->
+
+<div class="section-title">Physical Details</div>
+
+<input type="text" name="height" placeholder="Height (e.g. 5.6 ft)">
+
+<input type="text" name="weight" placeholder="Weight">
+
+<input type="text" name="complexion" placeholder="Complexion">
+
+<input type="text" name="hair" placeholder="Hair Color">
+
+<input type="text" name="eyes" placeholder="Eye Color">
+
+<input type="text" name="marks" placeholder="Identification Marks (tattoo, scar)">
+
+<!-- Missing Info -->
+
+<div class="section-title">Missing Details</div>
+
+<input type="text" name="lastLocation" placeholder="Last Seen Location">
+
+<input type="date" name="lastSeenDate">
+
+<textarea name="clothes" placeholder="Clothes worn at last seen"></textarea>
+
+<textarea name="description" placeholder="Additional Description"></textarea>
+
+<!-- Contact Info -->
+
+<div class="section-title">Reporter Details</div>
+
+<input type="text" name="reporterName" placeholder="Your Name">
+
+<input type="text" name="phone" placeholder="Phone Number">
+
+<input type="email" name="email" placeholder="Email Address">
+
+<!-- Upload -->
+
+<div class="section-title">Upload Photo</div>
+
+<input type="file" name="photo" required>
+
+<input type="file" name="extraPhotos" multiple>
+
+<!-- Status -->
+
+<select name="status">
+<option value="Missing">Missing</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">Submit Report</button>
+
+</form>
+
+</div>
+

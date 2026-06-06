@@ -1,0 +1,119 @@
+<%- include("partials/header") %>
+
+<link rel="stylesheet" href="/css/pages/Home.css">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <h1>Find Missing Persons Using AI</h1>
+    <p>Our system helps report, search, and identify missing persons using AI face recognition technology.</p>
+    <a class="btn" href="/report">📢 Report Missing Person</a>
+    <a class="btn" href="/search">🔍 Search Missing Person</a>
+  </div>
+
+  <!-- AI UPLOAD SECTION -->
+  <div class="ai-section" id="aiUploadSection">
+    <h2>🤖 Upload Photo to Detect Missing Person</h2>
+    <p>Upload a clear frontal photo and our AI will instantly compare with our national database</p>
+    <label class="file-label" for="photoUpload">📸 Click to select photo (JPG/PNG)</label>
+    <input type="file" id="photoUpload" accept="image/jpeg, image/png, image/jpg">
+    <div id="fileNameDisplay" class="file-name"></div>
+    <button class="btn" id="aiCheckBtn">✨ Check with AI</button>
+    <div id="aiResult" class="result-message"></div>
+  </div>
+
+  <!-- STATISTICS SECTION -->
+  <div class="stats-section">
+    <div class="stat-card">
+      <span class="stat-number">10,000+</span>
+      <span class="stat-label">Successful Matches</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">98.5%</span>
+      <span class="stat-label">AI Accuracy Rate</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">24/7</span>
+      <span class="stat-label">Emergency Support</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">150+</span>
+      <span class="stat-label">Partner Organizations</span>
+    </div>
+  </div>
+
+  <!-- INFORMATION GRID -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon">🔍</div>
+      <h3>How AI Recognition Works</h3>
+      <p>Our advanced facial recognition system scans thousands of data points from uploaded photos and compares them against our national missing persons database in seconds.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📋</div>
+      <h3>Report a Missing Person</h3>
+      <p>File a detailed report with photos, physical description, last known location, and clothing details.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🤝</div>
+      <h3>Volunteer Network</h3>
+      <p>Join our network of 5,000+ trained volunteers who help distribute alerts and conduct search operations.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🔒</div>
+      <h3>Privacy & Security</h3>
+      <p>All data is encrypted and stored securely. Only authorized law enforcement personnel can access sensitive information.</p>
+    </div>
+  </div>
+
+  <!-- SAFETY TIPS -->
+  <div class="tips-section">
+    <h2>⚠️ Important Safety Tips</h2>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <div class="tip-number">1</div>
+        <h3>Act Immediately</h3>
+        <p>Don't wait 24 hours to report a missing person.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-number">2</div>
+        <h3>Gather Recent Photos</h3>
+        <p>Keep recent, clear photos. Multiple angles help AI recognition.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-number">3</div>
+        <h3>Share on Social Media</h3>
+        <p>Share missing person alerts on social platforms for wider reach.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-number">4</div>
+        <h3>Stay Organized</h3>
+        <p>Keep important documents ready to assist authorities.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS STORIES -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon">🌟</div>
+      <h3>Success Story: Aarav's Return</h3>
+      <p>7-year-old Aarav was found within 48 hours using our AI matching system.</p>
+      <small style="color:#10b981;">✓ Case resolved in 2 days</small>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🏆</div>
+      <h3>Success Story: Elderly Reunion</h3>
+      <p>Mrs. Sharma, 72, with Alzheimer's, was located 200km away from home using AI.</p>
+      <small style="color:#10b981;">✓ Family reunited safely</small>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">💪</div>
+      <h3>2024 Impact Report</h3>
+      <p>Our platform helped resolve 2,847 missing person cases last year.</p>
+      <small style="color:#2563eb;">📊 View full report →</small>
+    </div>
+  </div>
+
+<script src="/home.js"></script>
+
+<%- include("partials/footer") %>

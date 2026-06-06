@@ -1,0 +1,67 @@
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+/* Navbar */
+
+.navbar{
+background:#1e3a8a;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+/* Container */
+
+.container{
+width:90%;
+max-width:900px;
+margin:30px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+}
+
+/* Section */
+
+.section{
+margin-bottom:25px;
+}
+
+.section h3{
+color:#1e3a8a;
+}
+
+/* FAQ */
+
+.faq{
+margin-top:10px;
+}
+
+.faq p{
+background:#f1f5f9;
+padding:10px;
+border-radius:5px;
+}
+
+/* Contact */
+
+.contact{
+background:#e0e7ff;
+padding:15px;
+border-radius:10px;
+}

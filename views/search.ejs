@@ -1,0 +1,117 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" href="/css/pages/search.css">
+
+<div class="search-box">
+  <h2>Advanced Search Missing Person</h2>
+
+  <form action="/search" method="POST" enctype="multipart/form-data">
+    <input type="text"   name="name"         placeholder="Full Name"                    value="<%= query.name || '' %>">
+    <input type="number" name="age"          placeholder="Age"                          value="<%= query.age || '' %>">
+
+    <select name="gender">
+      <option value="">Select Gender</option>
+      <option <%= query.gender==='Male'   ?'selected':'' %>>Male</option>
+      <option <%= query.gender==='Female' ?'selected':'' %>>Female</option>
+      <option <%= query.gender==='Other'  ?'selected':'' %>>Other</option>
+    </select>
+
+    <input type="text" name="height"       placeholder="Height (e.g. 5.6 ft)"         value="<%= query.height || '' %>">
+    <input type="text" name="complexion"   placeholder="Complexion (Fair, Dark)"       value="<%= query.complexion || '' %>">
+    <input type="text" name="marks"        placeholder="Identification Marks"          value="<%= query.marks || '' %>">
+    <input type="text" name="lastLocation" placeholder="Last Seen Location"            value="<%= query.lastLocation || '' %>">
+    <input type="date" name="lastSeenDate"                                             value="<%= query.lastSeenDate || '' %>">
+
+    <select name="status">
+      <option value="">Status</option>
+      <option <%= query.status==='Missing'?'selected':'' %>>Missing</option>
+      <option <%= query.status==='Found'  ?'selected':'' %>>Found</option>
+    </select>
+
+    <!-- AI Search -->
+    <label>📸 Upload Photo for AI Face Match</label>
+    <input type="file" name="photo" accept="image/*">
+
+    <button type="submit">🔍 Search</button>
+  </form>
+</div>
+
+<!-- ── AI Results ────────────────────────────────────────────── -->
+<% if (aiResults && aiResults.length > 0) { %>
+<div style="max-width:900px;margin:30px auto;padding:0 20px;">
+  <h2 style="color:#15803d;">🤖 AI Face Match Results — <%= aiResults.length %> match mila!</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;">
+    <% aiResults.forEach((p, i) => { %>
+    <a href="/person/<%= p._id %>" style="text-decoration:none;color:inherit;">
+      <div style="background:white;border-radius:12px;overflow:hidden;width:200px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        border:<%= i===0 ? '2px solid #22c55e' : '1px solid #e5e7eb' %>;">
+        <% if (i===0) { %>
+        <div style="background:#22c55e;color:white;text-align:center;font-size:12px;font-weight:600;padding:4px;">
+          🏆 Best Match
+        </div>
+        <% } %>
+        <% if (p.photo) { %>
+          <img src="/uploads/<%= p.photo %>" style="width:100%;height:160px;object-fit:cover;">
+        <% } else { %>
+          <div style="height:160px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:40px;">👤</div>
+        <% } %>
+        <div style="padding:12px;">
+          <p style="font-weight:700;margin:0 0 4px;"><%= p.name %></p>
+          <p style="font-size:13px;color:#6b7280;margin:0 0 8px;">
+            Age <%= p.age %> · <%= p.gender %><br><%= p.lastLocation || '' %>
+          </p>
+          <div style="font-size:12px;display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span>AI Confidence</span>
+            <span style="font-weight:700;color:#22c55e;"><%= p.confidence %>%</span>
+          </div>
+          <div style="height:6px;background:#e5e7eb;border-radius:99px;overflow:hidden;">
+            <div style="height:100%;width:<%= p.confidence %>%;background:#22c55e;border-radius:99px;"></div>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% }) %>
+  </div>
+</div>
+<% } %>
+
+<!-- ── Text Search Results ───────────────────────────────────── -->
+<% if (results && results.length > 0) { %>
+<div style="max-width:900px;margin:30px auto;padding:0 20px;">
+  <h2>🔍 Text Search Results — <%= results.length %> results</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:16px;">
+    <% results.forEach(p => { %>
+    <a href="/person/<%= p._id %>" style="text-decoration:none;color:inherit;">
+      <div style="background:white;border-radius:12px;overflow:hidden;width:200px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);border:1px solid #e5e7eb;">
+        <% if (p.photo) { %>
+          <img src="/uploads/<%= p.photo %>" style="width:100%;height:160px;object-fit:cover;">
+        <% } else { %>
+          <div style="height:160px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:40px;">👤</div>
+        <% } %>
+        <div style="padding:12px;">
+          <p style="font-weight:700;margin:0 0 4px;"><%= p.name %></p>
+          <p style="font-size:13px;color:#6b7280;margin:0;">
+            Age <%= p.age %> · <%= p.gender %>
+          </p>
+          <span style="background:#fef2f2;color:#dc2626;padding:3px 10px;border-radius:20px;font-size:12px;">
+            ⚠ <%= p.status || 'Missing' %>
+          </span>
+        </div>
+      </div>
+    </a>
+    <% }) %>
+  </div>
+</div>
+<% } %>
+
+<!-- No results -->
+<% if (results && results.length===0 && aiResults && aiResults.length===0 && Object.keys(query).some(k => query[k])) { %>
+<div style="text-align:center;padding:60px;color:#6b7280;">
+  <div style="font-size:50px;">🕵️</div>
+  <h3>Koi result nahi mila</h3>
+  <p>Alag keywords try karo ya photo upload karo AI search ke liye</p>
+</div>
+<% } %>
+
+<%- include("partials/footer") %>

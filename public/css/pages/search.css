@@ -1,0 +1,65 @@
+body{
+font-family:Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+/* Navbar */
+
+.navbar{
+background:#1e3a8a;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+/* Form Box */
+
+.search-box{
+background:white;
+padding:30px;
+margin:30px auto;
+width:90%;
+max-width:800px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.search-box h2{
+text-align:center;
+}
+
+/* Inputs */
+
+.search-box input,
+.search-box select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+/* Button */
+
+.search-box button{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+.search-box button:hover{
+background:#1d4ed8;
+}

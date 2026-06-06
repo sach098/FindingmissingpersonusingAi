@@ -1,0 +1,58 @@
+
+
+.login-container{
+display:flex;
+justify-content:center;
+align-items:center;
+height:80vh;
+}
+
+/* Login Box */
+
+.login-box{
+background:white;
+padding:40px;
+width:350px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.login-box h2{
+margin-bottom:20px;
+}
+
+/* Inputs */
+
+.login-box input{
+width:90%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+/* Button */
+
+.login-box button{
+width:100%;
+padding:10px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.login-box button:hover{
+background:#1d4ed8;
+}
+
+/* Link */
+
+.login-box a{
+display:block;
+margin-top:10px;
+text-decoration:none;
+color:#2563eb;
+}
